@@ -1,5 +1,6 @@
 ﻿interface ROTStatic {
     Display: Display;
+    RNG: RNG
 }
 
 // String extensions
@@ -10,6 +11,21 @@ interface FormatFunc {
 
 interface String {
     format: FormatFunc;
+}
+
+// Random Number Gen
+interface RNG {
+    getUniform(): number
+    getNormal(mean, stddev): number;
+    getPercentage(): number;
+
+    getState(): Array<number>;
+    setState(state: Array<number>): void;
+
+    getSeed(): number;
+    setSeet(seed: number): void;
+
+
 }
 
 // Display
