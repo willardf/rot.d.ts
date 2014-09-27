@@ -6,7 +6,7 @@
 
 // String extensions
 interface FormatFunc {
-    (format: string, ...args: any[]): string;
+    (...args: any[]): string;
     map: Object;
 }
 
@@ -24,9 +24,7 @@ interface RNG {
     setState(state: Array<number>): void;
 
     getSeed(): number;
-    setSeet(seed: number): void;
-
-
+    setSeed(seed: number): void;
 }
 
 // Map components
@@ -40,7 +38,7 @@ interface MapCreateCallback {
     (x: number, y: number, cellValue: number):void;
 }
 
-interface RoomCallback { (x: number, y: number): void; }
+interface DoorCallback { (x: number, y: number): void; }
 interface IsWallCallback { (x: number, y: number): boolean; }
 
 interface Room {
@@ -52,6 +50,7 @@ interface Room {
 
     addDoor(x: number, y: number): Room;
     addDoors(callback: IsWallCallback): Room;
+    getDoors(callback: DoorCallback): Room;
     clearDoors(): Room;
 
 }
@@ -113,6 +112,8 @@ interface DisplayOptions {
 }
 
 interface Display{
+    DEBUG: MapCreateCallback;
+
     new (options?: DisplayOptions): Display;
     getContainer(): Node;
     setOptions(options: DisplayOptions): void;
