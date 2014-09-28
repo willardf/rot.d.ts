@@ -52,7 +52,7 @@ declare module ROT {
     }
     /// <Summary>It's a Room</Summary>
     interface Room {
-        getCenter(): number;
+        getCenter(): Array<number>;
         getLeft(): number;
         getTop(): number;
         getBottom(): number;
@@ -130,7 +130,7 @@ declare module ROT {
         new (options?: DisplayOptions): Display;
         getContainer(): Node;
         setOptions(options: DisplayOptions): void;
-        draw(x: number, y: number, character: any, fg: string, bg: string): void;
+        draw(x: number, y: number, character: any, fg?: string, bg?: string): void;
         drawText(x: number, y: number, text: string, width: number): void;
 
     }
@@ -165,4 +165,24 @@ declare module ROT {
 
     // Helpers (Not in rot.js)
     enum FontStyle { Bold, Italic, None, Both }
+
+    // Constants
+    var DEFAULT_HEIGHT: number;
+    var DEFAULT_WIDTH: number;
+
+    var VK_CANCEL: number;
+	/** Help key. */
+    var VK_HELP: number;
+	/** Backspace key. */
+    var VK_BACK_SPACE: number;
+	/** Tab key. */
+    var VK_TAB: number;
+    /** Left arrow. */
+    var VK_LEFT: number;
+	/** Up arrow. */
+    var VK_UP: number;
+	/** Right arrow. */
+    var VK_RIGHT: number;
+	/** Down arrow. */
+    var VK_DOWN: number;
 }
